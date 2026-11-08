@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front-end Roadmap Wizard</title>
-</head>
-<body>
-    <div>Hello world!</div>
-</body>
-</html>
+---
+layout: layout.html
+---
+<ul>
+{% for cert in collections.cert %}          <li><a href="{{ cert.url }}">{{ cert.data.title }}</a></li>
+{% endfor %}        </ul>

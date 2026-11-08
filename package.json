@@ -1,0 +1,25 @@
+{
+  "name": "timur987.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timur987/timur987.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/timur987/timur987.github.io/issues"
+  },
+  "homepage": "https://github.com/timur987/timur987.github.io#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.8"
+  }
+}
