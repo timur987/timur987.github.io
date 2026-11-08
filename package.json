@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve"
+    "dev:css": "npx @tailwindcss/cli -i ./_assets/css/input.css -o ./_site/css/style.css --watch",
+    "dev:11ty": "npx @11ty/eleventy --serve",
+    "dev": "concurrently \"npm:dev:*\"",
+    "build:css": "npx @tailwindcss/cli -i ./_assets/css/input.css -o ./_site/css/style.css --minify",
+    "build:11ty": "npx @11ty/eleventy",
+    "build": "npm run build:css && npm run build:11ty"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,11 @@
   "homepage": "https://github.com/timur987/timur987.github.io#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "@tailwindcss/typography": "^0.5.20",
+    "concurrently": "^10.0.7",
+    "tailwindcss": "^4.3.5"
   }
 }

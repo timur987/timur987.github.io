@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>{{ title }}</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('details').forEach((details) => {
+                details.addEventListener('toggle', () => {
+                if (details.open) {
+                    const pdf = details.querySelector('object[data-src]');
+                    if (pdf) {
+                        pdf.data = pdf.dataset.src;
+                        pdf.removeAttribute('data-src');
+                    }
+                }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>{{ title }}</h1>
+        <h1>Рабочее пространство<br/>Тимура Гоголева</h1>
     </header>
-    <main>
-        {{ content }}
+    <main class="mx-auto max-w-3xl px-4 py-12">
+        <h1 class="mb-6 text-2xl font-bold text-gray-900">Мои сертификаты</h1>
+        <div class="space-y-4">
+            {{ content }}
+        </div>
     </main>
 </body>
 </html>

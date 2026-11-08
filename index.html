@@ -1,6 +1,34 @@
 ---
 layout: layout.html
+title: Рабочее пространство Тимура Гоголева
 ---
-<ul>
-{% for cert in collections.cert %}          <li><a href="{{ cert.url }}">{{ cert.data.title }}</a></li>
-{% endfor %}        </ul>
+{% for cert in collections.cert reversed %}<details class="group rounded-lg border border-gray-200 bg-white [&_summary::-webkit-details-marker]:hidden">
+    <summary class="flex cursor-pointer items-center justify-between gap-4 p-4 font-medium text-gray-900 hover:bg-gray-50">
+        <span>{{ cert.data.title }}</span>
+
+        <!-- Rotating Arrow Icon -->
+        <svg class="size-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </summary>
+    <div class="border-t border-gray-200 p-4">
+        {% if cert.data.file contains '.pdf' %}
+        <object data-src="./_certs/{{ cert.data.file }}#navpanes=0&toolbar=0&view=FitH" type="application/pdf" class="h-[500px] w-full rounded border border-gray-300">
+            <p class="text-sm text-gray-600">
+                Ваш браузер не поддерживает просмотр PDF. Нажмите на 
+                <a href="./_certs/{{ cert.data.file }}" class="font-medium text-blue-600 underline" download>эту ссылку</a>
+                чтобы скачать файл для дальнейшего просмотра.
+            </p>
+        </object>
+        {% else %}
+        <img 
+          src="./_certs/{{ cert.data.file }}" 
+          alt="{{ cert.title }}" 
+          loading="lazy" 
+          class="mx-auto max-h-[600px] w-auto rounded border border-gray-300" />
+        {% endif %}
+    </div>
+</details>
+{% endfor %}
+
+
