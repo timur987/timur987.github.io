@@ -4,7 +4,7 @@ title: Рабочее пространство Тимура Гоголева
 ---
 {% for cert in collections.cert reversed %}<details class="group rounded-lg border border-gray-200 bg-white [&_summary::-webkit-details-marker]:hidden">
     <summary class="flex cursor-pointer items-center justify-between gap-4 p-4 font-medium text-gray-900 hover:bg-gray-50">
-        <span>{{ cert.data.title }}</span>
+        <span>{{ cert.data.title }}, {{ cert.data.platform }}, {{ cert.data.date | getYear }}</span>
 
         <!-- Rotating Arrow Icon -->
         <svg class="size-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke="currentColor">
